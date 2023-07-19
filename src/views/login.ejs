@@ -1,0 +1,59 @@
+<%- include('includes/head.ejs')%>
+<%- include('includes/nav.ejs')%>
+
+
+<div class="container">
+    <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 my-3">
+        <h1 class="display text-center">Criar conta ou Entrar</h1>
+        <p class="text-center lead">Faça login ou crie sua conta aqui</p>
+
+        <%- include('includes/messages.ejs')%>
+
+        <div class="row">
+            <div class="col-lg my-3">
+                <h4>Faça o seu cadastro</h4>
+                <form class="form-cadastro" action="/login/register" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <div class="mb-3">
+                      <label class="form-label">Seu e-mail</label>
+                      <input type="email" class="form-control" name="email">
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label class="form-label">Sua senha</label>
+                      <input type="password" class="form-control" name="password">
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary">Criar minha conta</button>
+                  </form>
+            </div>
+
+            <div class="col-lg my-3">
+                <h4>Faça o seu login</h4>
+                <form class="form-login" action="/login/login" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <div class="mb-3">
+                      <label class="form-label">Seu e-mail</label>
+                      <input type="email" class="form-control" name="email">
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label class="form-label">Sua senha</label>
+                      <input type="password" class="form-control" name="password">
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                  </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-2"></div>
+    </div>
+</div>
+
+
+<%- include('includes/footer.ejs')%>
